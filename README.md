@@ -41,8 +41,8 @@ npm install
 
 3. Run the application:
 npm start
+To see the live Project Visit Here : https://ecommerce-responsive-web.netlify.app/
 
-To see Live visit Here : https://ecommerce-responsive-web.netlify.app/
 for frontend live : localhost:5173 Your Local server
    
 
