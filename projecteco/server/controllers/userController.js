@@ -1,20 +1,37 @@
 import User from '../models/userModel.js';
 import generateToken from '../utils/generateToken.js';
+// import bcrypt from 'bcryptjs';
 
 export const authUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("Double hitted")
     
     // Find user by email (case insensitive)
     const user = await User.findOne({ email: email.toLowerCase() });
 
     if (user && (await user.matchPassword(password))) {
+
+      // Generate token and send response
+      const token = generateToken(user._id); //
       res.json({
+        token,   //
+        user:{
+              success: true,
         _id: user._id,
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
         token: generateToken(user._id)
+        }
+
+        //   success: true,
+        // _id: user._id,
+        // name: user.name,
+        // email: user.email,
+        // isAdmin: user.isAdmin,
+        // token: generateToken(user._id)
+        
       });
     } else {
       res.status(401).json({ message: 'Invalid email or password' });
