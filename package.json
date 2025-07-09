@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server/index.js",
-    "dev:server": "nodemon server/index.js"
+    "dev:server": "nodemon server/index.js",
+      "start": "node index.js"
   },
   "dependencies": {
     "@react-oauth/google": "^0.12.2",
