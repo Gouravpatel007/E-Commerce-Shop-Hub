@@ -9,7 +9,7 @@ import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 
-// Load environment variables
+// environment variables
 dotenv.config();
 
 // Connect to database
@@ -17,8 +17,6 @@ connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-// app.use(express.json()); // Parse JSON bodies
 
 
 // Middleware
@@ -37,16 +35,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/payments', paymentRoutes);
-
-// Error handling middleware
-// app.use((err, req, res, next) => {
-//   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-//   res.status(statusCode).json({
-//     message: err.message,
-//     stack: process.env.NODE_ENV === 'production' ? null : err.stack
-//   });
-// });
-
 
 
 // Error handling middleware
